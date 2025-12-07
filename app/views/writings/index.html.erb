@@ -1,29 +1,45 @@
-<% content_for :title, "Writings" %>
-<% if notice.present? %>
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
-    <%= notice %>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+<%# 1. Outer Carousel Wrapper %>
+<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+  <%# 2. Indicators (The small dots at the bottom) %>
+  <div class="carousel-indicators">
+    <% @writings.each_with_index do |writing, index| %>
+      <button type="button" 
+              data-bs-target="#heroCarousel" 
+              data-bs-slide-to="<%= index %>" 
+              class="<%= 'active' if index == 0 %>" 
+              aria-current="<%= 'true' if index == 0 %>" 
+              aria-label="Slide <%= index + 1 %>">
+      </button>
+    <% end %>
   </div>
-<% end %>
-<div class="d-flex justify-content-between align-items-center mb-4">
-  <h1 class="mb-0">Writings</h1>
-  <%= link_to "New writing", new_writing_path, class: "btn btn-primary" %>
-</div>
-<div id="writings" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-  <% @writings.each do |writing| %>
-    <div class="col">
-      <div class="card h-100 shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title"><%= writing.title %></h5>
-          <p class="card-text text-muted small">
-            <%# Assuming 'writing' has a title field, or you render it inside the partial %>
-            <%= truncate(strip_tags(writing.content), length: 150) if writing.respond_to?(:content) %>
-          </p>
+  <%# 3. Inner Carousel Content %>
+  <div class="carousel-inner">
+    <% @writings.each_with_index do |writing, index| %>
+      <%# Each item represents one "page" %>
+      <div class="carousel-item <%= 'active' if index == 0 %>">
+        <%# Background Image/Visual Element %>
+        <%# NOTE: You would replace the '...' below with actual styling or an image tag %>
+        <div class="d-block w-100 bg-secondary" style="height: 300px;">
+          <h2 class="text-white text-center p-5">
+            Hero View: <%= writing.title %>
+          </h2>
         </div>
-        <div class="card-footer bg-light border-0">
-          <%= link_to "View Details", writing, class: "btn btn-outline-secondary btn-sm" %>
+        <%# Optional: Carousel Caption (Text overlay) %>
+        <div class="carousel-caption d-none d-md-block">
+          <h5><%= writing.title %></h5>
+          <p><%= "DESCRIPTION" %></p>
+          <%= link_to "Read More", writing, class: "btn btn-lg btn-warning" %>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+  <%# 4. Previous/Next Controls %>
+  <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
