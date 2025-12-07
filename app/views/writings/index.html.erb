@@ -1,0 +1,29 @@
+<% content_for :title, "Writings" %>
+<% if notice.present? %>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <%= notice %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% end %>
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h1 class="mb-0">Writings</h1>
+  <%= link_to "New writing", new_writing_path, class: "btn btn-primary" %>
+</div>
+<div id="writings" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+  <% @writings.each do |writing| %>
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title"><%= writing.title %></h5>
+          <p class="card-text text-muted small">
+            <%# Assuming 'writing' has a title field, or you render it inside the partial %>
+            <%= truncate(strip_tags(writing.content), length: 150) if writing.respond_to?(:content) %>
+          </p>
+        </div>
+        <div class="card-footer bg-light border-0">
+          <%= link_to "View Details", writing, class: "btn btn-outline-secondary btn-sm" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
