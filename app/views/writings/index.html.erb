@@ -5,7 +5,7 @@
     <%= link_to "สร้างงานเขียน", new_writing_path, class: "btn btn-primary" %>
   </div>
 <% else %>
-  <%= link_to "สร้างงานเขียน", new_writing_path, class: "btn btn-primary" %>
+  <%= link_to "สร้างงานเขียน", new_writing_path, class: "btn btn-primary mb-2 mt-2" %>
   <% @writings.each do |writing| %>
     <%= render "writings/writing", writing: writing %>
   <% end %>
