@@ -1,5 +1,5 @@
 class WritingsController < ApplicationController
-  before_action :set_writing, only: %i[ show edit update destroy ]
+  before_action :set_writing, only: %i[ show edit update destroy preview ]
 
   def welcome
     @writings = Writing.all.limit(5)
@@ -10,6 +10,9 @@ class WritingsController < ApplicationController
   end
 
   def show
+  end
+
+  def preview
   end
 
   def new

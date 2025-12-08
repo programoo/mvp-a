@@ -1,0 +1,15 @@
+<div class="container my-5">
+  <div class="text-center mb-4">
+    <% if @writing.cover.attached? %>
+      <%= image_tag @writing.cover,
+        class: "img-fluid rounded mb-4",
+        style: "max-height:350px; object-fit:cover;" %>
+    <% end %>
+    <h1 class="fw-bold"><%= @writing.title %></h1>
+  </div>
+  <div class="mx-auto" style="max-width:700px;">
+    <div class="novel-text">
+      <%= simple_format(@writing.content) %>
+    </div>
+  </div>
+</div>
