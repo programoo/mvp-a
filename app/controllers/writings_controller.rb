@@ -1,25 +1,20 @@
 class WritingsController < ApplicationController
   before_action :set_writing, only: %i[ show edit update destroy ]
 
-  # GET /writings or /writings.json
   def index
     @writings = Writing.all
   end
 
-  # GET /writings/1 or /writings/1.json
   def show
   end
 
-  # GET /writings/new
   def new
     @writing = Writing.new
   end
 
-  # GET /writings/1/edit
   def edit
   end
 
-  # POST /writings or /writings.json
   def create
     @writing = Writing.new(writing_params)
 
@@ -34,7 +29,6 @@ class WritingsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /writings/1 or /writings/1.json
   def update
     respond_to do |format|
       if @writing.update(writing_params)
@@ -47,7 +41,6 @@ class WritingsController < ApplicationController
     end
   end
 
-  # DELETE /writings/1 or /writings/1.json
   def destroy
     @writing.destroy!
 
@@ -58,12 +51,10 @@ class WritingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_writing
       @writing = Writing.find(params.expect(:id))
     end
 
-    # Only allow a list of trusted parameters through.
     def writing_params
       params.expect(writing: [ :title, :content ])
     end
