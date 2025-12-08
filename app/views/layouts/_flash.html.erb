@@ -1,0 +1,17 @@
+<div data-controller="flash" >
+  <% if notice %>
+    <div data-flash-target="message"
+         class="alert alert-success alert-dismissible fade show position-fixed top-0 start-50 translate-middle-x m-3"
+         style="z-index: 10000;"
+         role="alert">
+      <%= notice %>
+    </div>
+  <% elsif alert %>
+    <div data-flash-target="message"
+         class="alert alert-danger alert-dismissible fade show position-fixed top-0 start-50 translate-middle-x m-3"
+         style="z-index: 10000;"
+         role="alert">
+      <%= alert %>
+    </div>
+  <% end %>
+</div>
