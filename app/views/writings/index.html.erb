@@ -1,45 +1,12 @@
-<%# 1. Outer Carousel Wrapper %>
-<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
-  <%# 2. Indicators (The small dots at the bottom) %>
-  <div class="carousel-indicators">
-    <% @writings.each_with_index do |writing, index| %>
-      <button type="button" 
-              data-bs-target="#heroCarousel" 
-              data-bs-slide-to="<%= index %>" 
-              class="<%= 'active' if index == 0 %>" 
-              aria-current="<%= 'true' if index == 0 %>" 
-              aria-label="Slide <%= index + 1 %>">
-      </button>
-    <% end %>
+<% if @writings.blank? %>
+  <div class="d-flex flex-column justify-content-center align-items-center text-center"
+     style="height:100vh;">
+    <p class="mb-3">คุณยังไม่มีงานเขียน คลิกเพื่อสร้างงานเขียน</p>
+    <%= link_to "สร้างงานเขียน", new_writing_path, class: "btn btn-primary" %>
   </div>
-  <%# 3. Inner Carousel Content %>
-  <div class="carousel-inner">
-    <% @writings.each_with_index do |writing, index| %>
-      <%# Each item represents one "page" %>
-      <div class="carousel-item <%= 'active' if index == 0 %>">
-        <%# Background Image/Visual Element %>
-        <%# NOTE: You would replace the '...' below with actual styling or an image tag %>
-        <div class="d-block w-100 bg-secondary" style="height: 300px;">
-          <h2 class="text-white text-center p-5">
-            Hero View: <%= writing.title %>
-          </h2>
-        </div>
-        <%# Optional: Carousel Caption (Text overlay) %>
-        <div class="carousel-caption d-none d-md-block">
-          <h5><%= writing.title %></h5>
-          <p><%= "DESCRIPTION Realtime deploy" %></p>
-          <%= link_to "Read More", writing, class: "btn btn-lg btn-warning" %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <%# 4. Previous/Next Controls %>
-  <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+<% else %>
+  <%= link_to "สร้างงานเขียน", new_writing_path, class: "btn btn-primary" %>
+  <% @writings.each do |writing| %>
+    <%= render "writings/writing", writing: writing %>
+  <% end %>
+<% end %>

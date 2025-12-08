@@ -1,8 +1,12 @@
 class WritingsController < ApplicationController
   before_action :set_writing, only: %i[ show edit update destroy ]
 
+  def welcome
+    @writings = Writing.all.limit(5)
+  end
+
   def index
-    @writings = Writing.all
+    @writings = current_user.writings
   end
 
   def show
@@ -56,6 +60,6 @@ class WritingsController < ApplicationController
     end
 
     def writing_params
-      params.expect(writing: [ :title, :content ])
+      params.expect(writing: [ :title, :content, :cover, :user_id ])
     end
 end

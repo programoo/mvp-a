@@ -1,12 +1,30 @@
-<div id="<%= dom_id writing %>">
-  <p>
-    <strong>Title:</strong>
+<div id="<%= dom_id writing %>" class="d-flex justify-content-center">
+  <div class="col-1">
+    <% if writing.cover.attached? %>
+      <%= image_tag writing.cover,
+      class: "img-fluid mb-2 rounded",
+      style: "max-height:50px; object-fit:cover;" %>
+    <% end %>
+  </div>
+  <div class="col-6">
     <%= writing.title %>
-  </p>
-
-  <p>
-    <strong>Content:</strong>
-    <%= writing.content %>
-  </p>
-
+  </div>
+  <div class="col-2">
+    <button class="btn btn-secondary dropdown-toggle" type="button"
+          id="actionsDropdown"
+          data-bs-toggle="dropdown" aria-expanded="false">
+      Actions
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="actionsDropdown">
+      <li><%= link_to "Edit", edit_writing_path(writing), class: "dropdown-item" %></li>
+      <li><%= link_to "View", writing_path(writing), class: "dropdown-item" %></li>
+      <li><hr class="dropdown-divider"></li>
+      <li>
+        <%= link_to "Delete",
+            writing_path(writing),
+            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+            class: "dropdown-item text-danger" %>
+      </li>
+    </ul>
+  </div>
 </div>

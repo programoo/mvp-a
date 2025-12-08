@@ -45,6 +45,7 @@ gem 'aws-sdk-s3', require: false
 # gem "image_processing", "~> 1.2"
 gem 'faker'
 gem 'devise'
+gem "ruby-vips"
 
 gem "letter_opener", group: :development
 
