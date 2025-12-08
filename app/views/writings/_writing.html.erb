@@ -1,4 +1,4 @@
-<div id="<%= dom_id writing %>" class="d-flex flex-row justify-content-center card p-2 mb-3 shadow-sm" style="cursor:pointer;">
+<div id="<%= dom_id writing %>" class="d-flex flex-row justify-content-center card p-2 mb-3 shadow-sm" >
   <div class="col-1">
     <% if writing.cover.attached? %>
       <%= image_tag writing.cover,
@@ -7,7 +7,9 @@
     <% end %>
   </div>
   <div class="col-6">
-    <%= writing.title %>
+    <%= link_to preview_writing_path(writing), class: "text-decoration-none text-dark" do %>
+      <p style="cursor:pointer;"><%= writing.title %></p>
+    <% end %>
   </div>
   <div class="col-2">
     <button class="btn btn-secondary dropdown-toggle" type="button"
