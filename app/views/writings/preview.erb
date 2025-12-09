@@ -24,12 +24,7 @@
       <div class="col-auto d-flex justify-content-end">
         <%= link_to "เพิ่มตอน",
             new_writing_chapter_path(@writing),
-            data: {
-              turbo_frame: "chapter_modal"
-            },
-            class: "btn btn-primary d-inline-block",
-            "data-bs-toggle": "modal",
-            "data-bs-target": "#chapterModal"
+            class: "btn btn-primary d-inline-block"
         %>
       </div>
     </div>

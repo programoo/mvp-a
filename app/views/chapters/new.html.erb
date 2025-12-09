@@ -1,3 +1,10 @@
-<turbo-frame id="chapter_modal">
-  <%= render "form", chapter: @chapter %>
-</turbo-frame>
+<% content_for :level_one do %>
+  <%= link_to "จัดการงานเขียน", writings_path %>
+<% end %>
+<% content_for :level_two do %>
+  <%= link_to @writing.title , preview_writing_path(@writing) %>
+<% end %>
+<% content_for :level_three do %>
+  <%= "สร้างตอนใหม่" %>
+<% end %>
+<%= render "form", chapter: @chapter, writing: @chapter.writing%>

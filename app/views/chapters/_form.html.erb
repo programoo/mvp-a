@@ -1,27 +1,30 @@
-<%= form_with(model: chapter) do |form| %>
-  <%= form.hidden_field :writing_id, value: writing.id %>
-  <% if chapter.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(chapter.errors.count, "error") %> prohibited this chapter from being saved:</h2>
-      <ul>
-        <% chapter.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<div class="container">
+  <%= form_with(model: [writing, chapter], local: true, html: { class: "needs-validation" }, data: { turbo: false }) do |form| %>
+    <%= form.hidden_field :writing_id, value: writing.id %>
+    <% if chapter.errors.any? %>
+      <div class="alert alert-danger">
+        <h4 class="alert-heading">
+          <%= pluralize(chapter.errors.count, "error") %> prohibited this chapter from being saved:
+        </h4>
+        <ul class="mb-0">
+          <% chapter.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="mb-3">
+      <%= form.label :title, class: "form-label" %>
+      <%= form.text_field :title, class: "form-control", placeholder: "Enter chapter title" %>
     </div>
+    <div class="mb-3">
+      <%= form.label :description, class: "form-label" %>
+      <%= form.text_field :description, class: "form-control", placeholder: "Enter chapter description" %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :content, class: "form-label" %>
+      <%= form.text_area :content, class: "form-control", rows: 5, placeholder: "Enter chapter content" %>
+    </div>
+    <%= form.submit "Save Chapter", class: "btn btn-primary" %>
   <% end %>
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
-  </div>
-  <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.textarea :content %>
-  </div>
-  <%= form.submit %>
 </div>
-<% end %>

@@ -1,5 +1,6 @@
 class ChaptersController < ApplicationController
   before_action :set_chapter, only: %i[ show edit update destroy ]
+  before_action :set_writing
 
   def index
     @chapters = Chapter.all
@@ -9,7 +10,7 @@ class ChaptersController < ApplicationController
   end
 
   def new
-    @chapter = Chapter.new
+    @chapter = Chapter.new(writing_id: params[:writing_id])
   end
 
   def edit
@@ -21,7 +22,7 @@ class ChaptersController < ApplicationController
     if @chapter.save
       respond_to do |format|
         format.turbo_stream
-        format.html { redirect_to @writing }
+        format.html { redirect_to preview_writing_url(@chapter.writing) }
       end
     else
       render :new
@@ -51,6 +52,9 @@ class ChaptersController < ApplicationController
   end
 
   private
+    def set_writing
+      @writing = Writing.find(params[:writing_id])
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_chapter
       @chapter = Chapter.find(params.expect(:id))

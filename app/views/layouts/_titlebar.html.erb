@@ -5,6 +5,10 @@
       >
       <%= yield :level_two %>
     <% end %>
+    <% if content_for?(:level_three) %>
+      >
+      <%= yield :level_three %>
+    <% end %>
   </div>
   <div class="col-6">
     <%= yield :page_title %>
