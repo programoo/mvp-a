@@ -32,7 +32,7 @@ class ChaptersController < ApplicationController
   def update
     respond_to do |format|
       if @chapter.update(chapter_params)
-        format.html { redirect_to @chapter, notice: "Chapter was successfully updated.", status: :see_other }
+        format.html { redirect_to preview_writing_url(@chapter.writing), notice: "Chapter was successfully updated.", status: :see_other }
         format.json { render :show, status: :ok, location: @chapter }
       else
         format.html { render :edit, status: :unprocessable_entity }

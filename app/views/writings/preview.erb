@@ -43,11 +43,26 @@
         </div>
       </div>
     </div>
-    <div class="col-6">
+    <div class="col-12">
       <% @writing.chapters.order(created_at: :asc).each_with_index do |chapter, index| %>
         <div class="card shadow-sm p-2 m-1 d-flex flex-row align-items-center">
-          <span>ตอน <%= index+1 %></span>
-          <span class="ms-2"><%= chapter.title %></span>
+          <div class="col-2">ตอน <%= index+1 %></div>
+          <div class="col-8"><%= chapter.title %></div>
+          <div class="col-2">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="actionsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                Actions
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="actionsDropdown">
+                <li>
+                  <%= link_to "Edit", edit_writing_chapter_path(chapter.writing, chapter), class: "dropdown-item" %>
+                  <a class="dropdown-item" href="#">Edit</a>
+                </li>
+                <li><a class="dropdown-item" href="#">Delete</a></li>
+                <li><a class="dropdown-item" href="#">View</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
       <% end %>
     </div>

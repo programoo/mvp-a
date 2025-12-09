@@ -1,12 +1,10 @@
-<% content_for :title, "Editing chapter" %>
-
-<h1>Editing chapter</h1>
-
-<%= render "form", chapter: @chapter %>
-
-<br>
-
-<div>
-  <%= link_to "Show this chapter", @chapter %> |
-  <%= link_to "Back to chapters", chapters_path %>
-</div>
+<% content_for :level_one do %>
+  <%= link_to "จัดการงานเขียน", writings_path %>
+<% end %>
+<% content_for :level_two do %>
+  <%= link_to @writing.title , preview_writing_path(@writing) %>
+<% end %>
+<% content_for :level_three do %>
+  <%= @chapter.title %>
+<% end %>
+<%= render "form", chapter: @chapter, writing: @writing %>
