@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :chapters
   devise_for :users
   resources :writings do
     collection do
@@ -8,6 +9,8 @@ Rails.application.routes.draw do
     member do
       get :preview
     end
+
+    resources :chapters
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
