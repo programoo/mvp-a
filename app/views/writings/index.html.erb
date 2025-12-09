@@ -1,12 +1,17 @@
-<% if @writings.blank? %>
-  <div class="d-flex flex-column justify-content-center align-items-center text-center"
+<% content_for :page_title, "จัดการงานเขียน" %>
+<div class="container">
+  <% if @writings.blank? %>
+    <div class="d-flex flex-column justify-content-center align-items-center text-center"
      style="height:100vh;">
-    <p class="mb-3">คุณยังไม่มีงานเขียน คลิกเพื่อสร้างงานเขียน</p>
-    <%= link_to "สร้างงานเขียน", new_writing_path, class: "btn btn-primary" %>
-  </div>
-<% else %>
-  <%= link_to "สร้างงานเขียน", new_writing_path, class: "btn btn-primary mb-2 mt-2" %>
-  <% @writings.each do |writing| %>
-    <%= render "writings/writing", writing: writing %>
+      <p class="mb-3">คุณยังไม่มีงานเขียน คลิกเพื่อสร้างงานเขียน</p>
+      <%= link_to "สร้างงานเขียน", new_writing_path, class: "btn btn-primary" %>
+    </div>
+  <% else %>
+    <div class="d-flex justify-content-end flex-row">
+      <%= link_to "สร้างงานเขียน", new_writing_path, class: "btn btn-primary mb-2 mt-2" %>
+    </div>
+    <% @writings.each do |writing| %>
+      <%= render "writings/writing", writing: writing %>
+    <% end %>
   <% end %>
-<% end %>
+</div>

@@ -1,0 +1,12 @@
+<div class="container-fluid bg-light d-flex flex-row p-2 mt-1">
+  <div class="col-6">
+    <%= yield :level_one %>
+    <% if content_for?(:level_two) %>
+      >
+      <%= yield :level_two %>
+    <% end %>
+  </div>
+  <div class="col-6">
+    <%= yield :page_title %>
+  </div>
+</div>

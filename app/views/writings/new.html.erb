@@ -1,11 +1,4 @@
-<% content_for :title, "New writing" %>
-
-<h1>New writing</h1>
-
+<% content_for :level_two do %>
+  <%= "เพิ่มงานเขียน" %>
+<% end %>
 <%= render "form", writing: @writing %>
-
-<br>
-
-<div>
-  <%= link_to "Back to writings", writings_path %>
-</div>
