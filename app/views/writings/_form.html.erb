@@ -1,7 +1,7 @@
 <% content_for :level_one do %>
   <%= link_to "จัดการงานเขียน", writings_path %>
 <% end %>
-<%= form_with(model: writing, class: "needs-validation") do |form| %>
+<%= form_with(model: writing, class: "needs-validation", data: { turbo: false }) do |form| %>
   <%= form.hidden_field :user_id, value: current_user.id %>
   <% if writing.errors.any? %>
     <div class="alert alert-danger">

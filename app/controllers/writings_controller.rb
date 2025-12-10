@@ -27,7 +27,7 @@ class WritingsController < ApplicationController
 
     respond_to do |format|
       if @writing.save
-        format.html { redirect_to @writing, notice: "Writing was successfully created." }
+        format.html { redirect_to preview_writing_url(@writing), notice: "Writing was successfully created." }
         format.json { render :show, status: :created, location: @writing }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class WritingsController < ApplicationController
   def update
     respond_to do |format|
       if @writing.update(writing_params)
-        format.html { redirect_to @writing, notice: "Writing was successfully updated.", status: :see_other }
+        format.html { redirect_to preview_writing_url(@writing), notice: "Writing was successfully updated.", status: :see_other }
         format.json { render :show, status: :ok, location: @writing }
       else
         format.html { render :edit, status: :unprocessable_entity }
