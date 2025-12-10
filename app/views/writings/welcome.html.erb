@@ -47,21 +47,6 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-<div class="container">
-  <p>นิยายรัก</p>
-  <div class="d-flex">
-    <% Writing.all.limit(10).each do |writing| %>
-      <div class="col text-center">
-        <%# avatar %>
-        <%= image_tag writing.cover, size: "200x200" if writing.cover.attached? %>
-        <%# title under avatar %>
-        <div class="small">
-          <%= link_to  writing.title, preview_writing_path(writing, mode: "read") %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
 <div class="container py-4">
   <h3 class="mb-3">นิยายกำลังภายใน</h3>
   <div class="d-flex gap-3 overflow-auto pb-3">
