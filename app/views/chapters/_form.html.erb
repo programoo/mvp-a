@@ -17,7 +17,7 @@
     </div>
     <div class="mb-3">
       <%= form.label :content, class: "form-label" %>
-      <%= form.text_area :content, class: "form-control", rows: 5, placeholder: "Enter chapter content" %>
+      <%= form.rich_text_area :content, class: "form-control", rows: 5, placeholder: "Enter chapter content" %>
       <% if chapter.errors[:content].present? %>
         <div class="text-danger"><%= chapter.errors[:content].first %></div>
       <% end %>
