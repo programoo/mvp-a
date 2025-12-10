@@ -67,7 +67,11 @@
   <div class="d-flex gap-3 overflow-auto pb-3">
     <% Writing.all.limit(10).each do |writing| %>
       <div class="card flex-shrink-0" style="width: 200px;">
-        <%= image_tag writing.cover, size: "200x200", class: "rounded" if writing.cover.attached? %>
+        <%= image_tag(
+      writing.cover.attached? ? url_for(writing.cover) : "default_cover.png",
+      size: "200x200",
+      class: "rounded"
+    ) %>
         <div class="card-body">
           <h6 class="card-title text-truncate">
             <%= link_to writing.title, preview_writing_path(writing, mode: "read") %>
