@@ -17,18 +17,22 @@
     <% @writings.each_with_index do |writing, index| %>
       <%# Each item represents one "page" %>
       <div class="carousel-item <%= 'active' if index == 0 %>">
-        <%# Background Image/Visual Element %>
-        <%# NOTE: You would replace the '...' below with actual styling or an image tag %>
-        <div class="d-block w-100 bg-secondary" style="height: 300px;">
-          <h2 class="text-white text-center p-5">
-            Hero View: <%= writing.title %>
-          </h2>
-        </div>
-        <%# Optional: Carousel Caption (Text overlay) %>
+        <% if writing.cover.attached? %>
+          <%= image_tag writing.cover,
+      class: "d-block w-100",
+      style: "height:300px; object-fit:cover;" %>
+        <% else %>
+          <div class="d-block w-100 bg-secondary"
+         style="height:300px; object-fit:cover;">
+          </div>
+        <% end %>
         <div class="carousel-caption d-none d-md-block">
-          <h5><%= writing.title %></h5>
-          <p><%= "DESCRIPTION Realtime deploy" %></p>
-          <%= link_to "Read More", writing, class: "btn btn-lg btn-warning" %>
+          <h5 class="bg-black bg-opacity-50 p-2">
+            <%= writing.title %>
+          </h5>
+          <%= link_to "Read More",
+                writing,
+                class: "btn btn-lg btn-warning" %>
         </div>
       </div>
     <% end %>
