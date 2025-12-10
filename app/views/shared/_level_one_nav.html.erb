@@ -1,0 +1,5 @@
+<% if current_user.present? %>
+  <%= link_to "จัดการงานเขียน", writings_path %>
+<% else %>
+  <%= link_to "หน้าหลัก", welcome_writings_path %>
+<% end %>

@@ -1,5 +1,5 @@
 <% content_for :level_one do %>
-  <%= link_to "จัดการงานเขียน", writings_path %>
+  <%= render "shared/level_one_nav" %>
 <% end %>
 <% content_for :level_two do %>
   <%= link_to @writing.title, preview_writing_path(@writing) %>

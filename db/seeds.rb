@@ -11,6 +11,7 @@
 10.times do
   writing = Writing.create!(
     title: Faker::Book.title,
+    content: Faker::Lorem.paragraphs(number: 5).join("\n\n"),
     user: User.first # or random user
   )
 

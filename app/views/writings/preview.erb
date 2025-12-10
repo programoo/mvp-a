@@ -1,11 +1,5 @@
-<% if current_user.present? %>
-  <% content_for :level_one do %>
-    <%= link_to "จัดการงานเขียน", writings_path %>
-  <% end %>
-<% else %>
-  <% content_for :level_one do %>
-    <%= link_to "หน้าหลัก", welcome_writings_path  %>
-  <% end %>
+<% content_for :level_one do %>
+  <%= render "shared/level_one_nav" %>
 <% end %>
 <% content_for :level_two do %>
   <%= @writing.title %>
