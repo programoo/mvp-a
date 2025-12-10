@@ -1,12 +1,3 @@
-<% content_for :title, "Editing writing" %>
-
-<h1>Editing writing</h1>
-
+<% content_for :level_one, "จัดการงานเขียน" %>
+<% content_for :level_tow, @writing.title %>
 <%= render "form", writing: @writing %>
-
-<br>
-
-<div>
-  <%= link_to "Show this writing", @writing %> |
-  <%= link_to "Back to writings", writings_path %>
-</div>

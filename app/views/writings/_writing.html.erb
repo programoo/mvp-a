@@ -7,12 +7,13 @@
       style: "max-height:50px; object-fit:cover;" %>
     <% end %>
   </div>
-  <div class="col-6">
+  <div class="col-8 p-1">
     <%= link_to preview_writing_path(writing), class: "text-decoration-none text-dark" do %>
-      <p style="cursor:pointer;"><%= writing.title %></p>
+      <p class="mb-0" style="cursor:pointer;"><%= writing.title %></p>
     <% end %>
+    <%= writing.chapters.size %> ตอน
   </div>
-  <div class="col-2">
+  <div class="col-3">
     <button class="btn btn-secondary dropdown-toggle" type="button"
           id="actionsDropdown"
           data-bs-toggle="dropdown" aria-expanded="false">
