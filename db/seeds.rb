@@ -7,6 +7,21 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-(1..100).each do |index|
-    Writing.find_or_create_by!(title: Faker::Movie.title)
+# Generate fake writings with chapters
+10.times do
+  writing = Writing.create!(
+    title: Faker::Book.title,
+    user: User.first # or random user
+  )
+
+  # Generate chapters for each writing
+  rand(5..20).times do |i|
+    Chapter.create!(
+      writing: writing,
+      title: "Chapter #{i + 1}: #{Faker::Book.genre}",
+      content: Faker::Lorem.paragraphs(number: 5).join("\n\n")
+    )
+  end
 end
+
+puts "Seeded writings and chapters!"
