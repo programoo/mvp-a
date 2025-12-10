@@ -62,3 +62,23 @@
     <% end %>
   </div>
 </div>
+<div class="container py-4">
+  <h3 class="mb-3">นิยายกำลังภายใน</h3>
+  <div class="d-flex gap-3 overflow-auto pb-3">
+    <% Writing.all.limit(10).each do |writing| %>
+      <div class="card flex-shrink-0" style="width: 200px;">
+        <%= image_tag writing.cover, size: "200x200", class: "rounded" if writing.cover.attached? %>
+        <div class="card-body">
+          <h6 class="card-title text-truncate">
+            <%= link_to writing.title, preview_writing_path(writing, mode: "read") %>
+          </h6>
+          <p class="text-muted small mb-0"><%= writing.user.email %></p>
+          <p class="text-muted small mt-1 mb-0">
+            <i class="bi bi-journal-text"></i>
+            <%= pluralize(writing.chapters.count, "chapter") %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
