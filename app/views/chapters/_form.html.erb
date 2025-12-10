@@ -1,29 +1,26 @@
 <div class="container">
   <%= form_with(model: [writing, chapter], local: true, html: { class: "needs-validation" }, data: { turbo: false }) do |form| %>
     <%= form.hidden_field :writing_id, value: writing.id %>
-    <% if chapter.errors.any? %>
-      <div class="alert alert-danger">
-        <h4 class="alert-heading">
-          <%= pluralize(chapter.errors.count, "error") %> prohibited this chapter from being saved:
-        </h4>
-        <ul class="mb-0">
-          <% chapter.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
     <div class="mb-3">
       <%= form.label :title, class: "form-label" %>
       <%= form.text_field :title, class: "form-control", placeholder: "Enter chapter title" %>
+      <% if chapter.errors[:title].present? %>
+        <div class="text-danger"><%= chapter.errors[:title].first %></div>
+      <% end %>
     </div>
     <div class="mb-3">
       <%= form.label :description, class: "form-label" %>
       <%= form.text_field :description, class: "form-control", placeholder: "Enter chapter description" %>
+      <% if chapter.errors[:description].present? %>
+        <div class="text-danger"><%= chapter.errors[:description].first %></div>
+      <% end %>
     </div>
     <div class="mb-3">
       <%= form.label :content, class: "form-label" %>
       <%= form.text_area :content, class: "form-control", rows: 5, placeholder: "Enter chapter content" %>
+      <% if chapter.errors[:content].present? %>
+        <div class="text-danger"><%= chapter.errors[:content].first %></div>
+      <% end %>
     </div>
     <%= form.submit "Save Chapter", class: "btn btn-primary" %>
   <% end %>

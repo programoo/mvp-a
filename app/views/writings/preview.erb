@@ -63,7 +63,9 @@
                     data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
                     class: "dropdown-item text-danger" %>
                 </li>
-                <li><a class="dropdown-item" href="#">View</a></li>
+                <li>
+                  <%= link_to "View", writing_chapter_path(chapter.writing, chapter), class: "dropdown-item" %>
+                </li>
               </ul>
             </div>
           </div>
