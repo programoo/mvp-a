@@ -52,7 +52,7 @@
         <%= image_tag writing.cover, size: "200x200" if writing.cover.attached? %>
         <%# title under avatar %>
         <div class="small">
-          <%= writing.title %>
+          <%= link_to  writing.title, preview_writing_path(writing, mode: "read") %>
         </div>
       </div>
     <% end %>
