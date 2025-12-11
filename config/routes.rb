@@ -7,7 +7,8 @@ Rails.application.routes.draw do
     end
 
     member do
-      get :preview
+      get :readerview
+      get :writerview
     end
 
     resources :chapters

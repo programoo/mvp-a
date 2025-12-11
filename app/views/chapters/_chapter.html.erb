@@ -2,7 +2,7 @@
   <%= render "shared/level_one_nav" %>
 <% end %>
 <% content_for :level_two do %>
-  <%= link_to @writing.title, preview_writing_path(@writing) %>
+  <%= link_to @writing.title, writerview_writing_path(@writing) %>
 <% end %>
 <% content_for :level_three do %>
   <%= @chapter.title %>

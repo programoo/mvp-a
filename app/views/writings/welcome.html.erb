@@ -59,7 +59,7 @@
     ) %>
         <div class="card-body">
           <h6 class="card-title text-truncate">
-            <%= link_to writing.title, preview_writing_path(writing, mode: "read") %>
+            <%= link_to writing.title, readerview_writing_path(writing) %>
           </h6>
           <p class="text-muted small mb-0"><%= writing.user.email %></p>
           <p class="text-muted small mt-1 mb-0">

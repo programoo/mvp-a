@@ -1,5 +1,5 @@
 class WritingsController < ApplicationController
-  before_action :set_writing, only: %i[ show edit update destroy preview ]
+  before_action :set_writing, only: %i[ show edit update destroy writerview readerview ]
 
   def welcome
     @writings = Writing.all.limit(5)
@@ -12,7 +12,10 @@ class WritingsController < ApplicationController
   def show
   end
 
-  def preview
+  def writerview
+  end
+
+  def readerview
   end
 
   def new
@@ -27,7 +30,7 @@ class WritingsController < ApplicationController
 
     respond_to do |format|
       if @writing.save
-        format.html { redirect_to preview_writing_url(@writing), notice: "Writing was successfully created." }
+        format.html { redirect_to writerview_writing_url(@writing), notice: "Writing was successfully created." }
         format.json { render :show, status: :created, location: @writing }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +42,7 @@ class WritingsController < ApplicationController
   def update
     respond_to do |format|
       if @writing.update(writing_params)
-        format.html { redirect_to preview_writing_url(@writing), notice: "Writing was successfully updated.", status: :see_other }
+        format.html { redirect_to writerview_writing_url(@writing), notice: "Writing was successfully updated.", status: :see_other }
         format.json { render :show, status: :ok, location: @writing }
       else
         format.html { render :edit, status: :unprocessable_entity }

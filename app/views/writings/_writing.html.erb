@@ -8,7 +8,7 @@
     <% end %>
   </div>
   <div class="col-8 p-1">
-    <%= link_to preview_writing_path(writing), class: "text-decoration-none text-dark" do %>
+    <%= link_to writerview_writing_path(writing), class: "text-decoration-none text-dark" do %>
       <p class="mb-0" style="cursor:pointer;"><%= writing.title %></p>
     <% end %>
     <%= writing.chapters.size %> ตอน
@@ -21,7 +21,7 @@
     </button>
     <ul class="dropdown-menu" aria-labelledby="actionsDropdown">
       <li><%= link_to "Edit", edit_writing_path(writing), class: "dropdown-item" %></li>
-      <li><%= link_to "View", preview_writing_path(writing), class: "dropdown-item" %></li>
+      <li><%= link_to "View", writerview_writing_path(writing), class: "dropdown-item" %></li>
       <li><hr class="dropdown-divider"></li>
       <li>
         <%= link_to "Delete",

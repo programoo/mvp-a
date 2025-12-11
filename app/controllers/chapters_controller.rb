@@ -31,7 +31,7 @@ end
     if @chapter.save
       respond_to do |format|
         format.turbo_stream
-        format.html { redirect_to preview_writing_url(@chapter.writing) }
+        format.html { redirect_to writerview_writing_url(@chapter.writing) }
       end
     else
       render :new
@@ -41,7 +41,7 @@ end
   def update
     respond_to do |format|
       if @chapter.update(chapter_params)
-        format.html { redirect_to preview_writing_url(@chapter.writing), notice: "Chapter was successfully updated.", status: :see_other }
+        format.html { redirect_to writerview_writing_url(@chapter.writing), notice: "Chapter was successfully updated.", status: :see_other }
         format.json { render :show, status: :ok, location: @chapter }
       else
         format.html { render :edit, status: :unprocessable_entity }
