@@ -8,3 +8,4 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 pin "bootstrap", to: "bootstrap.bundle.min.js"
 pin "trix"
 pin "@rails/actiontext", to: "actiontext.esm.js"
+pin "sortablejs" # @1.15.6

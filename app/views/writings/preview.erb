@@ -67,6 +67,22 @@
           <% end %>
         </div>
       <% end %>
+      <div 
+        data-controller="sort"
+        data-sort-url="<%= sort_chapters_path %>"
+        class="list-group"
+      >
+        <% @writing.chapters.each do |chapter| %>
+          <div 
+            class="list-group-item d-flex align-items-center"
+            data-id="<%= chapter.id %>"
+            data-sort-target="item"
+          >
+            <span class="drag-handle me-2" style="cursor: grab;">☰</span>
+            <%= chapter.title %>
+          </div>
+        <% end %>
+      </div>
     </div>
     <hr>
   </div>

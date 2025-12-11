@@ -1,6 +1,6 @@
 class ChaptersController < ApplicationController
   before_action :set_chapter, only: %i[ show edit update destroy ]
-  before_action :set_writing
+  before_action :set_writing, except: %i[ sort ]
 
   def index
     @chapters = Chapter.all
@@ -15,6 +15,15 @@ class ChaptersController < ApplicationController
 
   def edit
   end
+
+  def sort
+  params[:order].each_with_index do |id, index|
+    Chapter.where(id: id).update_all(position: index + 1)
+  end
+
+  head :ok
+end
+
 
   def create
     @chapter = Chapter.new(chapter_params)
