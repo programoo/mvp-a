@@ -1,5 +1,6 @@
 class WritingsController < ApplicationController
   before_action :set_writing, only: %i[ show edit update destroy writerview readerview ]
+  before_action :authorized_writer, only: %i[ edit update destroy writerview]
 
   def welcome
     @writings = Writing.all.limit(5)
@@ -57,6 +58,14 @@ class WritingsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to writings_path, notice: "Writing was successfully destroyed.", status: :see_other }
       format.json { head :no_content }
+    end
+  end
+
+  def authorized_writer
+    begin
+      @writing = current_user.writings.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to writings_path, alert: "You are not authorized to access this writing."
     end
   end
 
