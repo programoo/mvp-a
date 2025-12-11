@@ -35,51 +35,47 @@
       </div>
     <% end %>
     <div class="col-12 mb-5">
-      <% @writing.chapters.order(created_at: :asc).each_with_index do |chapter, index| %>
-        <div id="<%= dom_id chapter %>" class="card shadow-sm p-2 m-1 d-flex flex-row align-items-center">
-          <div class="col-1">ตอน <%= index+1 %></div>
-          <div class="col-8">
-            <%= link_to chapter.title, writing_chapter_path(chapter.writing, chapter) %>
-          </div>
-          <% if params[:mode].blank? %>
-            <div class="col-3">
-              <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="actionsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                  Actions
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="actionsDropdown">
-                  <li>
-                    <%= link_to "Edit", edit_writing_chapter_path(chapter.writing, chapter), class: "dropdown-item" %>
-                  </li>
-                  <li>
-                    <%= link_to "View", writing_chapter_path(chapter.writing, chapter), class: "dropdown-item" %>
-                  </li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li>
-                    <%= link_to "Delete",
-                    writing_chapter_path(chapter.writing, chapter),
-                    data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-                    class: "dropdown-item text-danger" %>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
       <div 
         data-controller="sort"
         data-sort-url="<%= sort_chapters_path %>"
         class="list-group"
       >
-        <% @writing.chapters.each do |chapter| %>
+        <% @writing.chapters.order(position: :asc).each_with_index do |chapter, index| %>
           <div 
-            class="list-group-item d-flex align-items-center"
+            class=""
             data-id="<%= chapter.id %>"
             data-sort-target="item"
           >
-            <span class="drag-handle me-2" style="cursor: grab;">☰</span>
-            <%= chapter.title %>
+            <div id="<%= dom_id chapter %>" class="card shadow-sm p-2 m-1 d-flex flex-row align-items-center">
+              <div class="col-1">
+                <span class="drag-handle me-2" style="cursor: grab;">☰</span>
+              </div>
+              <div class="col-8">
+                <%= link_to chapter.title, writing_chapter_path(chapter.writing, chapter) %>
+              </div>
+              <div class="col-3">
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="actionsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    Actions
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="actionsDropdown">
+                    <li>
+                      <%= link_to "Edit", edit_writing_chapter_path(chapter.writing, chapter), class: "dropdown-item" %>
+                    </li>
+                    <li>
+                      <%= link_to "View", writing_chapter_path(chapter.writing, chapter), class: "dropdown-item" %>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li>
+                      <%= link_to "Delete",
+                    writing_chapter_path(chapter.writing, chapter),
+                    data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                    class: "dropdown-item text-danger" %>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         <% end %>
       </div>
