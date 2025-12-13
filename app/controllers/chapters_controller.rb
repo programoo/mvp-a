@@ -26,9 +26,9 @@ end
 
 
   def create
-    @chapter = Chapter.new(chapter_params)
+        @chapter = Chapter.new(chapter_params)
 
-    if @chapter.save
+        if @chapter.save
       respond_to do |format|
         format.turbo_stream
         format.html { redirect_to writerview_writing_url(@chapter.writing) }

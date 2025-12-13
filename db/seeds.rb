@@ -26,3 +26,7 @@
 end
 
 puts "Seeded writings and chapters!"
+
+if true
+puts "hi"
+end

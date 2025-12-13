@@ -78,3 +78,5 @@ end
 gem "ruby-lsp", "~> 0.26.4", group: :development
 
 gem "rubocop", "~> 1.81", group: :development
+
+gem "erb-formatter", "~> 0.7.3"

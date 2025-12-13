@@ -136,6 +136,8 @@ GEM
     drb (2.2.3)
     ed25519 (1.4.0)
     erb (6.0.0)
+    erb-formatter (0.7.3)
+      syntax_tree (~> 6.0)
     erubi (1.13.1)
     et-orbi (1.4.0)
       tzinfo
@@ -449,6 +451,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   devise
+  erb-formatter (~> 0.7.3)
   faker
   image_processing (~> 1.2)
   importmap-rails
