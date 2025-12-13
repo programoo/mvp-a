@@ -43,7 +43,6 @@ class WritingsController < ApplicationController
   end
 
   def update
-    binding.pry
     respond_to do |format|
       if @writing.update(writing_params)
         format.html do

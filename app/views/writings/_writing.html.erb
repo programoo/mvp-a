@@ -1,17 +1,24 @@
 <div id="<%= dom_id writing %>" 
     class="col-8 d-flex flex-row justify-content-center card p-2 mb-3 shadow-sm mx-auto" >
-  <div class="col-1">
+  <div class="col-1 d-flex justify-content-center align-items-center">
     <% if writing.cover.attached? %>
       <%= image_tag writing.cover,
-      class: "img-fluid mb-2 rounded",
-      style: "max-height:50px; object-fit:cover;" %>
+        class: "img-fluid rounded",
+        style: "max-height:50px; object-fit:cover;" %>
+    <% else %>
+      <%= image_tag "default_cover.png",
+        class: "img-fluid rounded",
+        style: "max-height:50px; object-fit:cover;" %>
     <% end %>
   </div>
   <div class="col-8 p-1">
     <%= link_to writerview_writing_path(writing), class: "text-decoration-none text-dark" do %>
       <p class="mb-0" style="cursor:pointer;"><%= writing.title %></p>
     <% end %>
-    <%= writing.chapters.size %> ตอน
+    <div class="d-flex justify-content-start align-items-center">
+      <i class="bi bi-file-text"></i>
+      <p class="d-inline-block m-0" style="cursor:pointer;"><%= writing.chapters.size %></p>
+    </div>
   </div>
   <div class="col-3 d-flex flex-row justify-content-center align-items-center">
     <button class="btn btn-secondary dropdown-toggle" type="button"

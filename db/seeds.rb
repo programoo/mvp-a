@@ -20,7 +20,7 @@
     Chapter.create!(
       writing: writing,
       title: "Chapter #{i + 1}: #{Faker::Book.genre}",
-      content: Faker::Lorem.paragraphs(number: 5).join("\n\n")
+      content: Faker::Lorem.paragraphs(number: 100).join("\n\n")
     )
   end
 end
