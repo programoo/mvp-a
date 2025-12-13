@@ -7,7 +7,6 @@ class WritingsTest < ApplicationSystemTestCase
 
   test "visiting the welcome" do
     visit welcome_writings_url
-    STDIN.gets
   end
   # test "should create writing" do
   #   visit writings_url

@@ -6,6 +6,6 @@ class UsersTest < ApplicationSystemTestCase
 
     sign_in(user) # your login helper
     visit welcome_writings_url
-    STDIN.gets
+    sleep 5
   end
 end
