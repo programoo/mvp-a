@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :chapters
-  devise_for :users
+  devise_for :users, defaults: { format: :html }
   resources :writings do
     collection do
       get :welcome

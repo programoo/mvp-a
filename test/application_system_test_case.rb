@@ -8,8 +8,11 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
 
   def sign_in(user)
     visit new_user_session_path
-    fill_in "Email", with: user.email
-    fill_in "Password", with: "Banana#13"
-    find("input[type=submit]").click
+
+    fill_in "user_email", with: user.email
+    fill_in "user_password", with: "Banana#13"
+
+    click_button "commit"
+    # page.save_screenshot("login.png")
   end
 end

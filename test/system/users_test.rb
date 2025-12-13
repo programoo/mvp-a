@@ -5,7 +5,7 @@ class UsersTest < ApplicationSystemTestCase
     user = create(:user)
 
     sign_in(user) # your login helper
-    visit welcome_writings_url
-    sleep 5
+    assert_text "user1@example.com"
+    # STDIN.gets
   end
 end
