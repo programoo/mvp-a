@@ -9,7 +9,6 @@ class WritingsTest < ApplicationSystemTestCase
     visit welcome_writings_url
     STDIN.gets
   end
-
   # test "should create writing" do
   #   visit writings_url
   #   click_on "New writing"
