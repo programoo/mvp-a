@@ -9,24 +9,18 @@
 #   end
 # Generate fake writings with chapters
 10.times do
-   writing = Writing.create!(
+  writing = Writing.create!(
     title: Faker::Book.title,
     content: Faker::Lorem.paragraphs(number: 5).join("\n\n"),
     user: User.first # or random user
   )
 
-   # Generate chapters for each writing
-   rand(5..20).times do |i|
-     Chapter.create!(
-       writing: writing,
-       title: "Chapter #{i + 1}: #{Faker::Book.genre}",
-       content: Faker::Lorem.paragraphs(number: 5).join("\n\n")
-     )
-   end
-end
-
-puts "Seeded writings and chapters!"
-
-if true
-puts "hi"
+  # Generate chapters for each writing
+  rand(5..20).times do |i|
+    Chapter.create!(
+      writing: writing,
+      title: "Chapter #{i + 1}: #{Faker::Book.genre}",
+      content: Faker::Lorem.paragraphs(number: 5).join("\n\n")
+    )
+  end
 end

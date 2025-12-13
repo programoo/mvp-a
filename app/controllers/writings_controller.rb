@@ -79,6 +79,6 @@ class WritingsController < ApplicationController
   end
 
   def writing_params
-    params.expect(writing: %i[title content cover user_id statue])
+    params.expect(writing: %i[title content cover user_id status])
   end
 end
