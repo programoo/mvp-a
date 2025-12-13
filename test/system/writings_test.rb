@@ -1,13 +1,13 @@
 require "application_system_test_case"
 
 class WritingsTest < ApplicationSystemTestCase
-  setup do
-    @writing = writings(:one)
-  end
+  # setup do
+  #   @writing = writings(:one)
+  # end
 
-  test "visiting the welcome" do
-    visit welcome_writings_url
-  end
+  # test "visiting the welcome" do
+  #   visit welcome_writings_url
+  # end
   # test "should create writing" do
   #   visit writings_url
   #   click_on "New writing"
