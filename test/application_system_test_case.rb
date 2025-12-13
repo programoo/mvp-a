@@ -9,8 +9,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   def sign_in(user)
     visit new_user_session_path
     fill_in "Email", with: user.email
-    fill_in "Password", with: "password123"
-    sleep 10
-    click_on "Log in"
+    fill_in "Password", with: "Banana#13"
+    find("input[type=submit]").click
   end
 end
