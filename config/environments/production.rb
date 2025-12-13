@@ -61,8 +61,8 @@ Rails.application.configure do
   # Set host to be used by links generated in mailer templates.
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  
-  config.action_mailer.default_url_options = { host: "www.popcornthai.com", protocol: 'https'  }
+
+  config.action_mailer.default_url_options = { host: "www.popcornthai.com", protocol: "https"  }
   # SMTP settings (Gmail example)
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
@@ -102,6 +102,5 @@ Rails.application.configure do
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 
   # Enable serving of assets
-  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present? || true
-
+  config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present? || true
 end

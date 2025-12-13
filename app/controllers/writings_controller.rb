@@ -41,23 +41,24 @@ class WritingsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @writing.update(writing_params)
-        format.html { redirect_to writerview_writing_url(@writing), notice: "Writing was successfully updated.", status: :see_other }
-        format.json { render :show, status: :ok, location: @writing }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @writing.errors, status: :unprocessable_entity }
-      end
-    end
+      binding.pry
+      respond_to do |format|
+         if @writing.update(writing_params)
+           format.html { redirect_to writerview_writing_url(@writing), notice: "Writing was successfully updated.", status: :see_other }
+           format.json { render :show, status: :ok, location: @writing }
+         else
+           format.html { render :edit, status: :unprocessable_entity }
+           format.json { render json: @writing.errors, status: :unprocessable_entity }
+         end
+       end
   end
 
   def destroy
     @writing.destroy!
 
     respond_to do |format|
-      format.html { redirect_to writings_path, notice: "Writing was successfully destroyed.", status: :see_other }
-      format.json { head :no_content }
+            format.html { redirect_to writings_path, notice: "Writing was successfully destroyed.", status: :see_other }
+            format.json { head :no_content }
     end
   end
 
@@ -75,6 +76,6 @@ class WritingsController < ApplicationController
     end
 
     def writing_params
-      params.expect(writing: [ :title, :content, :cover, :user_id ])
+      params.expect(writing: [ :title, :content, :cover, :user_id, :statue ])
     end
 end

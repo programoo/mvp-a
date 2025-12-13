@@ -15,6 +15,10 @@
       </ul>
     </div>
   <% end %>
+  <%= form.select :status,
+        Writing.statuses.keys.map { |k| [k.humanize, k] },
+        {}, 
+        class: "form-select" %>
   <div class="mb-3">
     <%= form.label :cover, class: "form-label" %>
     <%= form.file_field :cover, class: "form-control" %>

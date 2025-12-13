@@ -40,14 +40,17 @@ gem "kamal", require: false
 gem "thruster", require: false
 
 gem "pg"
-gem 'aws-sdk-s3', require: false
+gem "aws-sdk-s3", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
-gem 'faker'
-gem 'devise'
+gem "faker"
+gem "devise"
 gem "ruby-vips"
 
 gem "letter_opener", group: :development
+group :development do
+  gem "syntax_tree"
+end
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -58,6 +61,7 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+  gem "pry-rails"
 end
 
 group :development do
@@ -70,3 +74,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "ruby-lsp", "~> 0.26.4", group: :development
+
+gem "rubocop", "~> 1.81", group: :development
