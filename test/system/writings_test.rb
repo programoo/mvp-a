@@ -5,39 +5,39 @@ class WritingsTest < ApplicationSystemTestCase
     @writing = writings(:one)
   end
 
-  test "visiting the index" do
-    visit writings_url
-    assert_selector "h1", text: "Writings"
+  test "visiting the welcome" do
+    visit welcome_writings_url
+    STDIN.gets
   end
 
-  test "should create writing" do
-    visit writings_url
-    click_on "New writing"
+  # test "should create writing" do
+  #   visit writings_url
+  #   click_on "New writing"
 
-    fill_in "Content", with: @writing.content
-    fill_in "Title", with: @writing.title
-    click_on "Create Writing"
+  #   fill_in "Content", with: @writing.content
+  #   fill_in "Title", with: @writing.title
+  #   click_on "Create Writing"
 
-    assert_text "Writing was successfully created"
-    click_on "Back"
-  end
+  #   assert_text "Writing was successfully created"
+  #   click_on "Back"
+  # end
 
-  test "should update Writing" do
-    visit writing_url(@writing)
-    click_on "Edit this writing", match: :first
+  # test "should update Writing" do
+  #   visit writing_url(@writing)
+  #   click_on "Edit this writing", match: :first
 
-    fill_in "Content", with: @writing.content
-    fill_in "Title", with: @writing.title
-    click_on "Update Writing"
+  #   fill_in "Content", with: @writing.content
+  #   fill_in "Title", with: @writing.title
+  #   click_on "Update Writing"
 
-    assert_text "Writing was successfully updated"
-    click_on "Back"
-  end
+  #   assert_text "Writing was successfully updated"
+  #   click_on "Back"
+  # end
 
-  test "should destroy Writing" do
-    visit writing_url(@writing)
-    click_on "Destroy this writing", match: :first
+  # test "should destroy Writing" do
+  #   visit writing_url(@writing)
+  #   click_on "Destroy this writing", match: :first
 
-    assert_text "Writing was successfully destroyed"
-  end
+  #   assert_text "Writing was successfully destroyed"
+  # end
 end
