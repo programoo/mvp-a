@@ -6,7 +6,7 @@ export default class extends Controller {
   }
 
   connect() {
-    
+
     const saved = localStorage.getItem("fontSize")
     if (saved) {
       this.sizeValue = parseFloat(saved)
@@ -23,6 +23,12 @@ export default class extends Controller {
     this.sizeValue = Math.max(this.sizeValue - 0.1, 0.8)
     this.apply()
   }
+
+  reset() {
+    this.sizeValue = window.innerWidth < 768 ? 1 : 1.2
+    this.apply()
+  }
+
 
   apply() {
     document.documentElement.style.setProperty(
