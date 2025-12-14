@@ -6,4 +6,15 @@
 .reader-content {
     font-size: calc(1rem * var(--reader-font-scale));
     line-height: var(--reader-line-height);
+    display: inline;
+}
+
+.reader-content p {
+    display: inline;
+}
+
+.reader-content p::after {
+    content: "\A\A";
+    /* paragraph break */
+    white-space: pre;
 }
