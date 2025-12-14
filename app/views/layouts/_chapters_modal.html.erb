@@ -5,15 +5,26 @@
         <h5 class="modal-title">Chapters</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
-      <div class="modal-body">
-        คำแนะนำเรื่อง
-        <% @writing.chapters.order(position: :asc).each do |chapter| %>
-          <div>
-            <%= link_to chapter.title,
-                writing_chapter_path(chapter.writing, chapter),
-                class: "d-block py-1" %>
-          </div>
-        <% end %>
+      <div class="modal-body p-0">
+        <!-- Header / description -->
+        <div class="px-3 py-2 border-bottom fw-semibold">
+          คำแนะนำเรื่อง
+        </div>
+        <!-- Chapter list -->
+        <div class="list-group list-group-flush">
+          <% @writing.chapters.order(position: :asc).each_with_index do |chapter, index| %>
+            <%= link_to writing_chapter_path(chapter.writing, chapter),
+          class: "list-group-item list-group-item-action d-flex justify-content-between align-items-center" do %>
+              <span>
+                <span class="text-muted me-2">
+                  ตอนที่ <%= index + 1 %>
+                </span>
+                <%= chapter.title %>
+              </span>
+              <i class="bi bi-chevron-right text-muted"></i>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
