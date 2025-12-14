@@ -1,0 +1,33 @@
+:root {
+    /* Backgrounds */
+    --novel-bg: #fdfcf9;
+    /* paper-like background */
+    --novel-surface: #ffffff;
+    /* cards / modal */
+    --novel-muted-bg: #f5f3ef;
+    /* section separators */
+
+    /* Text */
+    --novel-text: #2b2b2b;
+    /* primary text */
+    --novel-text-muted: #6c757d;
+    /* Bootstrap muted */
+    --novel-text-soft: #9aa0a6;
+    /* meta info */
+
+    /* Primary / Accent */
+    --novel-primary: #8b5e3c;
+    /* warm brown (classic novel) */
+    --novel-primary-soft: #e6d3c2;
+
+    /* Reading states */
+    --novel-active: #e7f1ff;
+    /* current chapter */
+    --novel-read: #adb5bd;
+    /* read chapters */
+    --novel-highlight: #fff3cd;
+    /* notes / highlights */
+
+    /* Borders */
+    --novel-border: #e0ddd8;
+}

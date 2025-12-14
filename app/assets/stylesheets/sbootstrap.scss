@@ -1,0 +1,18 @@
+.list-group-item.active {
+    background-color: var(--novel-active);
+    color: var(--novel-text);
+    border-color: var(--novel-border);
+}
+
+body {
+    background-color: var(--novel-bg);
+    color: var(--novel-text);
+}
+
+a {
+    color: var(--novel-primary);
+}
+
+a:hover {
+    color: #6f4a2f;
+}
