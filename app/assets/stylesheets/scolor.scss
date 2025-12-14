@@ -1,33 +1,47 @@
 :root {
     /* Backgrounds */
     --novel-bg: #fdfcf9;
-    /* paper-like background */
     --novel-surface: #ffffff;
-    /* cards / modal */
     --novel-muted-bg: #f5f3ef;
-    /* section separators */
 
     /* Text */
     --novel-text: #2b2b2b;
-    /* primary text */
     --novel-text-muted: #6c757d;
-    /* Bootstrap muted */
     --novel-text-soft: #9aa0a6;
-    /* meta info */
 
     /* Primary / Accent */
     --novel-primary: #8b5e3c;
-    /* warm brown (classic novel) */
     --novel-primary-soft: #e6d3c2;
 
     /* Reading states */
     --novel-active: #e7f1ff;
-    /* current chapter */
     --novel-read: #adb5bd;
-    /* read chapters */
     --novel-highlight: #fff3cd;
-    /* notes / highlights */
 
     /* Borders */
     --novel-border: #e0ddd8;
+}
+
+[data-theme="dark"] {
+    /* Backgrounds */
+    --novel-bg: #121212;
+    --novel-surface: #1e1e1e;
+    --novel-muted-bg: #252525;
+
+    /* Text */
+    --novel-text: #e5e5e5;
+    --novel-text-muted: #adb5bd;
+    --novel-text-soft: #8a8f98;
+
+    /* Primary / Accent */
+    --novel-primary: #c89b6d;
+    --novel-primary-soft: #3a2a1e;
+
+    /* Reading states */
+    --novel-active: #2a3b55;
+    --novel-read: #6c757d;
+    --novel-highlight: #3a3222;
+
+    /* Borders */
+    --novel-border: #2f2f2f;
 }

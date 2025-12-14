@@ -1,9 +1,3 @@
-.list-group-item.active {
-    background-color: var(--novel-active);
-    color: var(--novel-text);
-    border-color: var(--novel-border);
-}
-
 body {
     background-color: var(--novel-bg);
     color: var(--novel-text);
@@ -14,5 +8,16 @@ a {
 }
 
 a:hover {
-    color: #6f4a2f;
+    color: color-mix(in srgb, var(--novel-primary) 80%, black);
+}
+
+.list-group-item {
+    background-color: var(--novel-surface);
+    border-color: var(--novel-border);
+}
+
+.list-group-item.active {
+    background-color: var(--novel-active);
+    color: var(--novel-text);
+    border-color: var(--novel-border);
 }
