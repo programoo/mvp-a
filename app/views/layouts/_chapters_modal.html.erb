@@ -20,7 +20,7 @@
                   <span class="me-2 <%= 'fw-semibold' if chapter == @chapter %>">
                     ตอนที่ <%= index + 1 %>
                   </span>
-                  <%= chapter.title %>
+                  <p class="d-inline"><%= chapter.title %></p>
                 </span>
                 <% if chapter == @chapter %>
                   <i class="bi bi-bookmark-fill"></i>

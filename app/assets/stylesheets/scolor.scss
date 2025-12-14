@@ -24,24 +24,30 @@
 
 [data-theme="dark"] {
     /* Backgrounds */
-    --novel-bg: #121212;
-    --novel-surface: #1e1e1e;
-    --novel-muted-bg: #252525;
+    --novel-bg: #1c1c1c;
+    /* was #121212 */
+    --novel-surface: #262626;
+    /* was #1e1e1e */
+    --novel-muted-bg: #2f2f2f;
+    /* was #252525 */
 
     /* Text */
-    --novel-text: #e5e5e5;
-    --novel-text-muted: #adb5bd;
-    --novel-text-soft: #8a8f98;
+    --novel-text: #e0e0e0;
+    /* slightly dimmed */
+    --novel-text-muted: #b0b0b0;
+    --novel-text-soft: #9a9a9a;
 
     /* Primary / Accent */
-    --novel-primary: #c89b6d;
-    --novel-primary-soft: #3a2a1e;
+    --novel-primary: #d4b08a;
+    /* warmer, easier on eyes */
+    --novel-primary-soft: #4a3726;
 
     /* Reading states */
-    --novel-active: #2a3b55;
-    --novel-read: #6c757d;
-    --novel-highlight: #3a3222;
+    --novel-active: #344966;
+    /* muted blue */
+    --novel-read: #8a8a8a;
+    --novel-highlight: #4a402f;
 
     /* Borders */
-    --novel-border: #2f2f2f;
+    --novel-border: #3a3a3a;
 }
