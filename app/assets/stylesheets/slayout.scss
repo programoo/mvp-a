@@ -4,12 +4,17 @@ body {
 }
 
 a {
-    color: var(--novel-primary);
+    color: var(--novel-primary) !important;
 }
 
 a:hover {
     color: color-mix(in srgb, var(--novel-primary) 80%, black);
 }
+
+.navbar-toggler {
+    border-color: var(--novel-primary);
+}
+
 
 .list-group-item {
     background-color: var(--novel-bg);
