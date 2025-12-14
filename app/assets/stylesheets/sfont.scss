@@ -1,0 +1,8 @@
+:root {
+    --reader-font-scale: 1;
+}
+
+.reader-content {
+    font-size: calc(1rem * var(--reader-font-scale));
+    line-height: calc(1.7 * var(--reader-font-scale));
+}

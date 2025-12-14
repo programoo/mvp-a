@@ -23,12 +23,12 @@
     </p>
   <% end %>
   <!-- content -->
-  <div class="mt-4" 
+  <div class="mt-4 reader-content" 
        style="font-family: 'Times New Roman', serif; text-align: justify;">
     <%= simple_format chapter.content %>
   </div>
   <!-- bottom info -->
-  <div class="mt-5 text-muted text-end"
+  <div class="mt-5 text-muted text-end reader-content"
        style="font-size: .9rem;">
     Written in: <%= chapter.writing.title if chapter.writing %>
   </div>
