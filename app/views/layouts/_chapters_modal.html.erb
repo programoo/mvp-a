@@ -6,22 +6,26 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body p-0">
-        <!-- Header / description -->
-        <div class="px-3 py-2 border-bottom fw-semibold">
-          คำแนะนำเรื่อง
-        </div>
-        <!-- Chapter list -->
         <div class="list-group list-group-flush">
           <% @writing.chapters.order(position: :asc).each_with_index do |chapter, index| %>
             <%= link_to writing_chapter_path(chapter.writing, chapter),
-          class: "list-group-item list-group-item-action d-flex justify-content-between align-items-center" do %>
+          class: [
+            "list-group-item",
+            "list-group-item-action",
+            "d-flex justify-content-between align-items-center",
+            ("active" if chapter == @chapter)
+          ].compact.join(" ") do %>
               <span>
-                <span class="text-muted me-2">
+                <span class="me-2 <%= 'fw-semibold' if chapter == @chapter %>">
                   ตอนที่ <%= index + 1 %>
                 </span>
                 <%= chapter.title %>
               </span>
-              <i class="bi bi-chevron-right text-muted"></i>
+              <% if chapter == @chapter %>
+                <i class="bi bi-bookmark-fill"></i>
+              <% else %>
+                <i class="bi bi-chevron-right text-muted"></i>
+              <% end %>
             <% end %>
           <% end %>
         </div>
