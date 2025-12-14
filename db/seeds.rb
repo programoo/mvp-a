@@ -16,10 +16,11 @@
   )
 
   # Generate chapters for each writing
-  rand(25..200).times do |i|
+  Array.new(rand(25..200)).each_with_index do |_, index|
     Chapter.create!(
       writing: writing,
-      title: "Chapter #{i + 1}: #{Faker::Book.genre}",
+      position: index + 1,
+      title: "Chapter #{index + 1}: #{Faker::Book.genre}",
       content: Faker::Lorem.paragraphs(number: 100).join("\n\n")
     )
   end

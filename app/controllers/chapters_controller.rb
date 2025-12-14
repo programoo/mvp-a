@@ -1,12 +1,22 @@
 class ChaptersController < ApplicationController
-  before_action :set_chapter, only: %i[ show edit update destroy ]
-  before_action :set_writing, except: %i[ sort ]
+  before_action :set_chapter, only: %i[show edit update destroy]
+  before_action :set_writing, except: %i[sort]
 
   def index
     @chapters = Chapter.all
   end
 
+  # chapters_controller.rb
   def show
+    @previous_chapter = @chapter.writing.chapters
+                                .where("position < ?", @chapter.position)
+                                .order(position: :desc)
+                                .first
+
+    @next_chapter = @chapter.writing.chapters
+                            .where("position > ?", @chapter.position)
+                            .order(position: :asc)
+                            .first
   end
 
   def new
@@ -17,18 +27,17 @@ class ChaptersController < ApplicationController
   end
 
   def sort
-  params[:order].each_with_index do |id, index|
-    Chapter.where(id: id).update_all(position: index + 1)
+    params[:order].each_with_index do |id, index|
+      Chapter.where(id: id).update_all(position: index + 1)
+    end
+
+    head :ok
   end
 
-  head :ok
-end
-
-
   def create
-        @chapter = Chapter.new(chapter_params)
+    @chapter = Chapter.new(chapter_params)
 
-        if @chapter.save
+    if @chapter.save
       respond_to do |format|
         format.turbo_stream
         format.html { redirect_to writerview_writing_url(@chapter.writing) }
@@ -41,7 +50,10 @@ end
   def update
     respond_to do |format|
       if @chapter.update(chapter_params)
-        format.html { redirect_to writerview_writing_url(@chapter.writing), notice: "Chapter was successfully updated.", status: :see_other }
+        format.html do
+          redirect_to writerview_writing_url(@chapter.writing), notice: "Chapter was successfully updated.",
+                                                                status: :see_other
+        end
         format.json { render :show, status: :ok, location: @chapter }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -62,16 +74,18 @@ end
   end
 
   private
-    def set_writing
-      @writing = Writing.find(params[:writing_id])
-    end
-    # Use callbacks to share common setup or constraints between actions.
-    def set_chapter
-      @chapter = Chapter.find(params.expect(:id))
-    end
 
-    # Only allow a list of trusted parameters through.
-    def chapter_params
-      params.expect(chapter: [ :title, :description, :content, :writing_id ])
-    end
+  def set_writing
+    @writing = Writing.find(params[:writing_id])
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_chapter
+    @chapter = Chapter.find(params.expect(:id))
+  end
+
+  # Only allow a list of trusted parameters through.
+  def chapter_params
+    params.expect(chapter: %i[title description content writing_id])
+  end
 end
