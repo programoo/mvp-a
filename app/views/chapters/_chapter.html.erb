@@ -12,24 +12,6 @@
      class="container my-5" 
      style="max-width: 700px; line-height: 1.8; font-size: 1.1rem;">
   <!-- title -->
-  <div class="d-flex justify-content-between mt-4 gap-2">
-    <% if @previous_chapter %>
-      <%= link_to writing_chapter_path(@chapter.writing, @previous_chapter),
-        class: "btn btn-outline-secondary d-flex align-items-center" do %>
-        <i class="bi bi-chevron-left me-1"></i>
-        ตอนก่อนหน้า
-      <% end %>
-    <% else %>
-      <span></span>
-    <% end %>
-    <% if @next_chapter %>
-      <%= link_to writing_chapter_path(@chapter.writing, @next_chapter),
-        class: "btn btn-outline-secondary d-flex align-items-center" do %>
-        ตอนถัดไป
-        <i class="bi bi-chevron-right ms-1"></i>
-      <% end %>
-    <% end %>
-  </div>
   <h1 class="mb-4 text-center"
       style="font-family: Georgia, serif;">
     <%= chapter.title %>
@@ -49,5 +31,27 @@
   <div class="mt-5 text-muted text-end reader-content"
        style="font-size: .9rem;">
     Written in: <%= chapter.writing.title if chapter.writing %>
+  </div>
+  <div class="position-sticky bottom-0 bg-body border-top py-3">
+    <div class="container">
+      <div class="d-flex justify-content-between gap-2">
+        <% if @previous_chapter %>
+          <%= link_to writing_chapter_path(@chapter.writing, @previous_chapter),
+          class: "btn btn-outline-secondary d-flex align-items-center" do %>
+            <i class="bi bi-chevron-left me-1"></i>
+            ตอนก่อนหน้า
+          <% end %>
+        <% else %>
+          <span></span>
+        <% end %>
+        <% if @next_chapter %>
+          <%= link_to writing_chapter_path(@chapter.writing, @next_chapter),
+          class: "btn btn-outline-secondary d-flex align-items-center" do %>
+            ตอนถัดไป
+            <i class="bi bi-chevron-right ms-1"></i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
