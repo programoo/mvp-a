@@ -1,0 +1,20 @@
+<div class="modal fade" id="chaptersModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content" style="max-height: 70vh;">
+      <div class="modal-header">
+        <h5 class="modal-title">Chapters</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        คำแนะนำเรื่อง
+        <% @writing.chapters.order(position: :asc).each do |chapter| %>
+          <div>
+            <%= link_to chapter.title,
+                writing_chapter_path(chapter.writing, chapter),
+                class: "d-block py-1" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,9 +1,3 @@
-<% content_for :level_one do %>
-        <%= render "shared/level_one_nav" %>
-<% end %>
-<% content_for :level_two do %>
-  <%= @writing.title %>
-<% end %>
 <div class="container d-flex flex-column align-items-center">
   <div class="text-center mb-5">
     <% if @writing.cover.attached? %>

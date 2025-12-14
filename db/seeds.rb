@@ -16,7 +16,7 @@
   )
 
   # Generate chapters for each writing
-  rand(5..20).times do |i|
+  rand(25..200).times do |i|
     Chapter.create!(
       writing: writing,
       title: "Chapter #{i + 1}: #{Faker::Book.genre}",

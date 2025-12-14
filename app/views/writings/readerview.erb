@@ -1,1 +1,7 @@
+<% content_for :level_one do %>
+  <%= render "shared/level_one_nav" %>
+<% end %>
+<% content_for :level_two do %>
+  <%= @writing.title %>
+<% end %>
 <%= render "writings/fullview" %>
