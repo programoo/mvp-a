@@ -1,4 +1,4 @@
-<div class="container-fluid d-flex flex-row mt-1 sticky-top">
+<div class="container d-flex flex-row mt-1 sticky-top">
   <div class="col-6">
     <%= yield :level_one %>
     <% if content_for?(:level_two) %>
@@ -10,7 +10,7 @@
       <%= yield :level_three %>
     <% end %>
   </div>
-  <div class="col-6 sleft">
+  <div class="col-6 sright">
     <button class="btn btn-outline-secondary"
         data-action="click->theme#toggle">
       <i class="bi bi-moon-stars"></i>
