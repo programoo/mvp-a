@@ -13,3 +13,10 @@
     text-align: justify;
     color: #212529;
 }
+
+.scenter {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}

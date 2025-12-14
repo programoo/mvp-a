@@ -1,9 +1,12 @@
 <% content_for :level_one do %>
-  <i class="bi bi-list-ol fs-2"
+  <div class="scenter">
+    <i class="bi bi-list-ol fs-2 p-2"
     role="button"
     data-bs-toggle="modal"
     data-bs-target="#chaptersModal">
-  </i>
+    </i>
+    <p class="d-inline m-0 ms-3"><%= chapter.title %></p>
+  </div>
 <% end %>
 <div id="<%= dom_id chapter %>" 
      class="container my-5" 
