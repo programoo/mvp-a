@@ -12,8 +12,8 @@ a:hover {
 }
 
 .list-group-item {
-    background-color: var(--novel-surface);
-    border-color: var(--novel-border);
+    background-color: var(--novel-bg);
+    color: var(--novel-text);
 }
 
 .list-group-item.active {
@@ -21,4 +21,3 @@ a:hover {
     color: var(--novel-text);
     border-color: var(--novel-border);
 }
-
