@@ -1,18 +1,26 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
+  static targets = ["light", "dark"]
+
   connect() {
-    const saved = localStorage.getItem("theme")
-    if (saved) {
-      document.documentElement.dataset.theme = saved
-    }
+    const saved = localStorage.getItem("theme") || "light"
+    this.apply(saved)
   }
 
-  toggle() {
-    const current = document.documentElement.dataset.theme
-    const next = current === "dark" ? "light" : "dark"
+  setLight() {
+    this.apply("light")
+  }
 
-    document.documentElement.dataset.theme = next
-    localStorage.setItem("theme", next)
+  setDark() {
+    this.apply("dark")
+  }
+
+  apply(theme) {
+    document.documentElement.dataset.theme = theme
+    localStorage.setItem("theme", theme)
+
+    this.lightTarget.classList.toggle("active", theme === "light")
+    this.darkTarget.classList.toggle("active", theme === "dark")
   }
 }

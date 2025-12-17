@@ -33,14 +33,26 @@
             aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-      <button
-        type="button"
-        class="btn btn-outline-secondary"
-        data-controller="theme"
-        data-action="click->theme#toggle"
-        aria-label="Toggle theme">
-        <i class="bi bi-moon-stars"></i>
-      </button>
+      <div class="btn-group"
+     role="group"
+     data-controller="theme">
+        <button
+    type="button"
+    class="btn btn-outline-secondary"
+    data-theme-target="light"
+    data-action="click->theme#setLight"
+          aria-label="Light theme">
+          <i class="bi bi-sun"></i>
+        </button>
+        <button
+    type="button"
+    class="btn btn-outline-secondary"
+    data-theme-target="dark"
+    data-action="click->theme#setDark"
+          aria-label="Dark theme">
+          <i class="bi bi-moon-stars"></i>
+        </button>
+      </div>
       <div data-controller="font-size"
          class="btn-group w-100 mb-3">
         <button type="button"
