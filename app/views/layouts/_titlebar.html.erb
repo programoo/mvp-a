@@ -1,5 +1,5 @@
 <div class="container d-flex flex-row mt-1 sticky-top border-bottom">
-  <div class="col-6">
+  <div class="col-12 d-flex justify-content-between">
     <%= yield :level_one %>
     <% if content_for?(:level_two) %>
       >
@@ -9,74 +9,5 @@
       >
       <%= yield :level_three %>
     <% end %>
-  </div>
-  <button
-    class="btn btn-outline-secondary d-flex align-items-center gap-1"
-    type="button"
-    data-bs-toggle="offcanvas"
-    data-bs-target="#readerSettings"
-    aria-controls="readerSettings">
-    <i class="bi bi-fonts"></i>
-    <span class="d-none d-md-inline">Aa</span>
-  </button>
-  <div class="offcanvas offcanvas-end"
-     tabindex="-1"
-     id="readerSettings"
-     aria-labelledby="readerSettingsLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="readerSettingsLabel">
-        Reader settings
-      </h5>
-      <button type="button"
-            class="btn-close"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <div class="btn-group"
-     role="group"
-     data-controller="theme">
-        <button
-    type="button"
-    class="btn btn-outline-secondary"
-    data-theme-target="light"
-    data-action="click->theme#setLight"
-          aria-label="Light theme">
-          <i class="bi bi-sun"></i>
-        </button>
-        <button
-    type="button"
-    class="btn btn-outline-secondary"
-    data-theme-target="dark"
-    data-action="click->theme#setDark"
-          aria-label="Dark theme">
-          <i class="bi bi-moon-stars"></i>
-        </button>
-      </div>
-      <div data-controller="font-size"
-         class="btn-group w-100 mb-3">
-        <button type="button"
-              class="btn btn-outline-secondary"
-              data-action="click->font-size#decrease">A−</button>
-        <button type="button"
-              class="btn btn-outline-secondary"
-              data-action="click->font-size#increase">A+</button>
-        <button type="button"
-              class="btn btn-outline-secondary"
-              data-action="click->font-size#reset">A</button>
-      </div>
-      <div data-controller="line-height"
-         class="btn-group w-100">
-        <button type="button"
-              class="btn btn-outline-secondary"
-              data-action="click->line-height#decrease">−</button>
-        <button type="button"
-              class="btn btn-outline-secondary"
-              data-action="click->line-height#increase">+</button>
-        <button type="button"
-              class="btn btn-outline-secondary"
-              data-action="click->line-height#reset">LH</button>
-      </div>
-    </div>
   </div>
 </div>

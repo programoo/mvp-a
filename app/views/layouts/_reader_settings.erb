@@ -1,0 +1,98 @@
+ <button
+    class="btn btn-outline-secondary"
+    type="button"
+    data-bs-toggle="offcanvas"
+    data-bs-target="#readerSettings"
+    aria-controls="readerSettings">
+  <span class="d-none d-md-inline">Aa</span>
+</button>
+<div class="offcanvas offcanvas-end"
+     tabindex="-1"
+     id="readerSettings"
+     aria-labelledby="readerSettingsLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="readerSettingsLabel">
+      Reader settings
+    </h5>
+    <button type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <!-- Theme -->
+    <div class="mb-4">
+      <div class="text-muted small mb-2">Theme</div>
+      <div class="btn-group w-100"
+         role="group"
+         data-controller="theme">
+        <button
+        type="button"
+        class="btn btn-outline-secondary d-flex align-items-center justify-content-center gap-1"
+        data-theme-target="light"
+        data-action="click->theme#setLight"
+          aria-label="Light theme">
+          <i class="bi bi-sun"></i>
+          <span class="small">Light</span>
+        </button>
+        <button
+        type="button"
+        class="btn btn-outline-secondary d-flex align-items-center justify-content-center gap-1"
+        data-theme-target="dark"
+        data-action="click->theme#setDark"
+          aria-label="Dark theme">
+          <i class="bi bi-moon-stars"></i>
+          <span class="small">Dark</span>
+        </button>
+      </div>
+    </div>
+    <!-- Font size -->
+    <div class="mb-4">
+      <div class="text-muted small mb-2">Text size</div>
+      <div data-controller="font-size"
+         class="btn-group w-100">
+        <button 
+            type="button"
+            data-action="click->font-size#decrease"
+          class="btn btn-outline-secondary">
+          A−
+        </button>
+        <button 
+            type="button"
+            data-action="click->font-size#reset"
+          class="btn btn-outline-secondary fw-semibold">
+          A
+        </button>
+        <button 
+            type="button"
+            data-action="click->font-size#increase"
+          class="btn btn-outline-secondary">
+          A+
+        </button>
+      </div>
+    </div>
+    <!-- Line height -->
+    <div class="mb-3">
+      <div class="text-muted small mb-2">Line spacing</div>
+      <div data-controller="line-height"
+         class="btn-group w-100">
+        <button type="button"
+          data-action="click->line-height#decrease"
+          class="btn btn-outline-secondary">
+          −
+        </button>
+        <button type="button"
+          data-action="click->line-height#reset"
+          class="btn btn-outline-secondary fw-semibold">
+          LH
+        </button>
+        <button type="button"
+          
+            data-action="click->line-height#increase"
+          class="btn btn-outline-secondary">
+          +
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
