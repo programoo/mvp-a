@@ -1,4 +1,4 @@
-<div class="container d-flex flex-row mt-1 sticky-top">
+<div class="container d-flex flex-row mt-1 sticky-top border-bottom">
   <div class="col-6">
     <%= yield :level_one %>
     <% if content_for?(:level_two) %>
@@ -10,26 +10,61 @@
       <%= yield :level_three %>
     <% end %>
   </div>
-  <div class="col-6 sright">
-    <button class="btn btn-outline-secondary"
-        data-action="click->theme#toggle">
-      <i class="bi bi-moon-stars"></i>
-    </button>
-    <div data-controller="font-size" class="btn-group">
-      <button class="btn btn-outline-secondary"
-          data-action="click->font-size#decrease">A−</button>
-      <button class="btn btn-outline-secondary"
-          data-action="click->font-size#increase">A+</button>
-      <button class="btn btn-outline-secondary" 
-          data-action="click->font-size#reset">A</button>
+  <button
+    class="btn btn-outline-secondary d-flex align-items-center gap-1"
+    type="button"
+    data-bs-toggle="offcanvas"
+    data-bs-target="#readerSettings"
+    aria-controls="readerSettings">
+    <i class="bi bi-fonts"></i>
+    <span class="d-none d-md-inline">Aa</span>
+  </button>
+  <div class="offcanvas offcanvas-end"
+     tabindex="-1"
+     id="readerSettings"
+     aria-labelledby="readerSettingsLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="readerSettingsLabel">
+        Reader settings
+      </h5>
+      <button type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"></button>
     </div>
-    <div data-controller="line-height" class="btn-group">
-      <button class="btn btn-outline-secondary"
-          data-action="click->line-height#decrease">−</button>
-      <button class="btn btn-outline-secondary"
-          data-action="click->line-height#increase">+</button>
-      <button class="btn btn-outline-secondary"
-          data-action="click->line-height#reset">LH</button>
+    <div class="offcanvas-body">
+      <button
+        type="button"
+        class="btn btn-outline-secondary"
+        data-controller="theme"
+        data-action="click->theme#toggle"
+        aria-label="Toggle theme">
+        <i class="bi bi-moon-stars"></i>
+      </button>
+      <div data-controller="font-size"
+         class="btn-group w-100 mb-3">
+        <button type="button"
+              class="btn btn-outline-secondary"
+              data-action="click->font-size#decrease">A−</button>
+        <button type="button"
+              class="btn btn-outline-secondary"
+              data-action="click->font-size#increase">A+</button>
+        <button type="button"
+              class="btn btn-outline-secondary"
+              data-action="click->font-size#reset">A</button>
+      </div>
+      <div data-controller="line-height"
+         class="btn-group w-100">
+        <button type="button"
+              class="btn btn-outline-secondary"
+              data-action="click->line-height#decrease">−</button>
+        <button type="button"
+              class="btn btn-outline-secondary"
+              data-action="click->line-height#increase">+</button>
+        <button type="button"
+              class="btn btn-outline-secondary"
+              data-action="click->line-height#reset">LH</button>
+      </div>
     </div>
   </div>
 </div>

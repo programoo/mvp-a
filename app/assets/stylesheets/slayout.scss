@@ -30,3 +30,11 @@ a:hover {
     color: var(--novel-text);
     border-color: var(--novel-border);
 }
+
+.reader-popover-content {
+    max-width: 520px;
+}
+
+.reader-popover-content .popover-body {
+    padding: 0.75rem;
+}

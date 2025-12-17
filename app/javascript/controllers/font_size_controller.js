@@ -6,6 +6,7 @@ export default class extends Controller {
   }
 
   connect() {
+    console.log("Font size connected");
 
     const saved = localStorage.getItem("fontSize")
     if (saved) {
