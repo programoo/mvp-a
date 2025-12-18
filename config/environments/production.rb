@@ -103,4 +103,6 @@ Rails.application.configure do
 
   # Enable serving of assets
   config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present? || true
+
+  config.hosts << "www.popcornthai.com"
 end

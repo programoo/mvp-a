@@ -19,8 +19,7 @@ export default class extends Controller {
   apply(theme) {
     document.documentElement.dataset.theme = theme
     localStorage.setItem("theme", theme)
-
-    this.lightTarget.classList.toggle("active", theme === "light")
-    this.darkTarget.classList.toggle("active", theme === "dark")
+    this?.lightTarget.classList.toggle("active", theme === "light")
+    this?.darkTarget.classList.toggle("active", theme === "dark")
   }
 }
