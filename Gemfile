@@ -63,7 +63,7 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'erb-formatter', '~> 0.7.3'
   gem 'letter_opener'
-  gem 'rubocop', '~> 1.81', group: :development
+  gem 'rubocop', '~> 1.82', group: :development
   gem 'ruby-lsp', '~> 0.26.4', group: :development
   gem 'syntax_tree'
   gem 'web-console'
